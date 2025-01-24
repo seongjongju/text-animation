@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스크롤 값에 따라 요소가 가로로 움직이는 구조</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      height: 10000px;
+      background-color: aqua;
+    }
+    
+    #section01 {
+      width: 100%;
+      height: 960px;
+      background-color: lightgray;
+    }
+    
+    #section02 {
+      width: 100%;
+      height: 6100px;
+      background-color: #fff;
+    }
+
+    #section02 .move_sec {position: sticky; top: 0; left: 0; width: 100%; height: 500px;  padding: 200px 0; overflow: hidden;}
+    
+    #section02 .move_sec .scrollx_container {
+      width: 200%;
+      display: flex;
+      position: absolute;
+      height: 500px;
+      left: 100%;
+    }
+    
+    #section02 .move_sec .scrollx_container div {
+      width: calc(100% / 8);
+      height: 100%;
+      margin-right: 50px;
+      background-color: blue;
+    }
+    
+    #section02 .move_sec .scrollx_container div:last-child {
+      margin-right: 0;
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="section01"></div>
+  
+  <div id="section02">
+    <div class="move_sec">
+      <div class="scrollx_container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const scrollx_container = document.querySelector('.scrollx_container');
+    console.log(scrollx_container);
+
+    window.addEventListener('scroll', () => {
+      let windowY = window.scrollY;
+      let leftValue = Math.max(100 - (windowY - 960) / 20, -150);
+      console.log(windowY)
+
+      if(windowY >= 960 ) {
+        scrollx_container.style.left = `${leftValue}%`
+      } else {
+        scrollx_container.style.left = `100%`
+      }
+    })
+  </script>
+</body>
+</html>
