@@ -19,7 +19,7 @@
 
 //한글자씩
 const textAnimationTwo = () => {
-  const oneTexts = document.querySelectorAll('.letter_container div');
+  const oneTexts = document.querySelectorAll('.letter_container span');
   const windowHeight = window.innerHeight;
   console.log(oneTexts);
 
