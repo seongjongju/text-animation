@@ -1,0 +1,10 @@
+*{padding: 0; margin: 0;}
+body {height: 5000px;}
+section {height: 960px;}
+
+#section01 {background: palegoldenrod;}
+#section02 {padding: 100px 0;}
+
+.text-container {width: 50%; margin: 0 auto;}
+.text-container div {position: relative; top: 40px; opacity: 0; font-size: 40px; transition: all 0.5s;}
+.text-container div.on {top: 0; opacity: 1;}

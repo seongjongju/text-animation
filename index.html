@@ -1,87 +1,24 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>스크롤 값에 따라 요소가 가로로 움직이는</title>
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-    }
-    body {
-      height: 10000px;
-      background-color: aqua;
-    }
-    
-    #section01 {
-      width: 100%;
-      height: 960px;
-      background-color: lightgray;
-    }
-    
-    #section02 {
-      width: 100%;
-      aspect-ratio: 1920 / 6100;
-      background-color: #fff;
-      box-sizing: border-box;
-    }
-
-    #section02 .move_sec {position: sticky; top: 0; left: 0; width: 100%; height: 500px; padding: 5% 0; overflow: hidden; display: flex; align-items: center;}
-    
-    #section02 .move_sec .scrollx_container {
-      width: 200%;
-      display: flex;
-      position: absolute;
-      left: 100%;
-    }
-    
-    #section02 .move_sec .scrollx_container div {
-      width: 100%;
-      aspect-ratio: 500 / 500;
-      margin-right: 50px;
-      background-color: blue;
-    }
-    
-    #section02 .move_sec .scrollx_container div:last-child {
-      margin-right: 0;
-    }
-    
-  </style>
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
-  <div id="section01"></div>
-  
-  <div id="section02">
-    <div class="move_sec">
-      <div class="scrollx_container">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+  <section id="section01"></section>
+  <section id="section02">
+    <div class="text-container">
+      <div>Sling Shot Intergalactic is the foremost</div>
+      <div>choice for file transfers among film</div>
+      <div>producers, spanning from Hollywood to Paris</div>
+      <div>and Bangkok. Our mission was to design a</div>
+      <div>cutting-edge website that mirrors the</div>
+      <div>warp-speed efficiency with which they handle</div>
+      <div>transfers.</div>
     </div>
-  </div>
-  
-  <script>
-    const scrollx_container = document.querySelector('.scrollx_container');
-    console.log(scrollx_container);
-
-    window.addEventListener('scroll', () => {
-      let windowY = window.scrollY;
-      let leftValue = Math.max(100 - (windowY - 960) / 20, -150);
-      console.log(windowY)
-
-      if(windowY >= 960 ) {
-        scrollx_container.style.left = `${leftValue}%`
-      } else {
-        scrollx_container.style.left = `100%`
-      }
-    })
-  </script>
+  </section>
 </body>
 </html>
